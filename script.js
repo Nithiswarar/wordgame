@@ -17,7 +17,8 @@ grid.addEventListener("mousedown", function(e) {
 
   if (e.button === 0) {
     // Left mouse button
-    e.target.textContent = currentPlayer === 1 ? "X" : "O";
+    e.target.contentEditable = "true";
+    e.target.focus();
   } else if (e.button === 2) {
     // Right mouse button
     e.target.textContent = "";
@@ -51,6 +52,7 @@ function clearGrid() {
   cells.forEach(function(cell) {
     cell.textContent = "";
     cell.classList.remove("strike");
+    cell.contentEditable = "inherit";
   });
 }
 
