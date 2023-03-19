@@ -79,3 +79,17 @@ const orangeButton = document.getElementById("orange-button");
 orangeButton.addEventListener("click", function() {
   undo();
 });
+
+const cellsArray = Array.from(cells);
+cellsArray.forEach(cell => {
+  cell.addEventListener("keydown", function(e) {
+    if (this.textContent.length >= 1) {
+      this.textContent = "";
+    }
+  });
+  cell.addEventListener("input", function(e) {
+    if (this.textContent.length > 1) {
+      this.textContent = this.textContent.slice(0, 1);
+    }
+  });
+});
